@@ -1,8 +1,8 @@
 <template>
-  <v-toolbar dark color="primary">
+  <v-toolbar dark color="#303F9F">
     <v-toolbar-side-icon></v-toolbar-side-icon>
 
-    <v-toolbar-title class="white--text">Title</v-toolbar-title>
+    <v-toolbar-title class="white--text">Board For Everybody</v-toolbar-title>
 
     <v-spacer></v-spacer>
 
@@ -11,15 +11,7 @@
     </v-btn>
 
     <v-btn icon>
-      <v-icon>apps</v-icon>
-    </v-btn>
-
-    <v-btn icon>
       <v-icon>refresh</v-icon>
-    </v-btn>
-
-    <v-btn icon>
-      <v-icon>more_vert</v-icon>
     </v-btn>
   </v-toolbar>
 </template>
