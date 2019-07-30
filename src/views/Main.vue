@@ -1,19 +1,23 @@
 <template>
   <div>
     <Header />
-    <h1>hello world</h1>
+    <v-container>
+      <PostList></PostList>
+    </v-container>
   </div>
 </template>
 
 
 <script>
 import Header from '../components/commons/Header'
+import PostList from '../components/posts/PostList'
 
 export default {
   name: "Main",
 
   components: {
     Header,
+    PostList,
   },
   
 }
