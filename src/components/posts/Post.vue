@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-card>
+    <v-card max-height="400px" min-height="400px">
         <v-img
           class="white--text"
           height="200px"
@@ -15,12 +15,19 @@
           </v-container>
 
         </v-img>
+
+
         <v-card-title>
           <div>
-            <span class="grey--text">{{ writer }}</span><br>
-            <span>{{ content }}</span>
+            <span class="grey--text">{{ writtenDate }}</span><br>
+            <span>{{ writer }}</span>
           </div>
         </v-card-title>
+        
+        <v-card-text max-height="100px">
+          <div class="card-text">{{ content }}</div>
+        </v-card-text>
+        
       </v-card>
 
   </div>
@@ -50,4 +57,12 @@ export default {
 
 }
 </script>
+
+<style>
+.card-text {
+  word-break:break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+</style>
 

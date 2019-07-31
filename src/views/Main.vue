@@ -1,9 +1,7 @@
 <template>
   <div>
     <Header />
-    <v-container>
-      <PostList></PostList>
-    </v-container>
+    <PostList></PostList>
   </div>
 </template>
 
