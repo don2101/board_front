@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-card max-height="400px" min-height="400px">
+    <v-card height="350px">
         <v-img
           class="white--text"
           height="200px"
@@ -60,9 +60,18 @@ export default {
 
 <style>
 .card-text {
-  word-break:break-all;
+  white-space: normal;
   text-overflow: ellipsis;
   overflow: hidden;
+
+  /* 글자 단위로 자른다 */
+  word-wrap: break-word;
+  /* 여백 삽입 및 유연한 높이 증가 */
+  display: -webkit-box;
+  /* 보여줄 줄 수 */
+  -webkit-line-clamp: 3;
+  /* 플렉스 방향 설정 */
+  -webkit-box-orient: vertical;
 }
 </style>
 
