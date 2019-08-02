@@ -1,14 +1,15 @@
 <template>
   <v-container grid-list-xl>
-    <v-layout fill-height justify-space-around class="card-columns mt-5" row wrap>
-      <v-flex v-for="i in postList.length" xs4>
+    <v-layout fill-height justify-space-around class="mt-5" row wrap>
+      <v-flex v-for="(post, i) in postList" :key="i" xs4>
         <Post
-          :title="postList[i-1].title"
-          :content="postList[i-1].content"
-          :writer="postList[i-1].writer"
-          :writtenDate="postList[i-1].updated_at">
+          :title="post.title"
+          :content="post.content"
+          :writer="post.writer"
+          :writtenDate="post.updated_at">
         </Post>
       </v-flex>
+      
     </v-layout>
   </v-container>
 </template>
@@ -28,6 +29,7 @@ export default {
   data() {
     return {
       postList: [],
+      activate: false,
     }
   },
 
@@ -38,6 +40,9 @@ export default {
   methods: {
     async getPostList() {
       this.postList = await PostService.getPostList()
+    },
+
+    test() {
     }
   },
 }

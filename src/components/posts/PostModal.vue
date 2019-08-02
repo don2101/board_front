@@ -1,6 +1,19 @@
 <template>
-  <div>
-    <v-card height="400px">
+  <v-dialog
+      v-model="dialog"
+      width="500"
+    >
+    <template v-slot:activator="{ on }">
+      <v-btn
+        color="red lighten-1"
+        dark
+        v-on="on"
+      >
+        Detail
+      </v-btn>
+    </template>
+
+    <v-card>
       <v-img
         class="white--text"
         height="200px"
@@ -22,33 +35,29 @@
           <span>{{ writer }}</span>
         </div>
       </v-card-title>
-      
+
       <v-card-text max-height="100px">
         <div class="card-text">{{ content }}</div>
       </v-card-text>
 
-      <v-card-action>
-        <PostModal
-          :title="title"
-          :content="content"
-          :writer="writer"
-          :writtenDate="writtenDate"></PostModal>
-        </v-card-action>
+      <v-card-actions>
+        <v-spacer></v-spacer>
+        <v-btn
+          color="red"
+          text dark
+          @click="dialog = false"
+        >
+          Close
+        </v-btn>
+      </v-card-actions>
     </v-card>
-
-  </div>
+  </v-dialog>
 </template>
 
 
 <script>
-import PostModal from './PostModal'
-
 export default {
-  name: "Post",
-
-  components: {
-    PostModal,
-  },
+  name: 'PostModal',
 
   props: {
     title: { type: String },
@@ -56,34 +65,12 @@ export default {
     writer: { type: String },
     writtenDate: { type: String },
   },
-    
-  methods: {
-    //
-  },
 
   data() {
     return {
-      //
+      dialog: false,
     }
   },
-
+  
 }
 </script>
-
-<style>
-.card-text {
-  white-space: normal;
-  text-overflow: ellipsis;
-  overflow: hidden;
-
-  /* 글자 단위로 자른다 */
-  word-wrap: break-word;
-  /* 여백 삽입 및 유연한 높이 증가 */
-  display: -webkit-box;
-  /* 보여줄 줄 수 */
-  -webkit-line-clamp: 3;
-  /* 플렉스 방향 설정 */
-  -webkit-box-orient: vertical;
-}
-</style>
-
