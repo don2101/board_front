@@ -10,15 +10,23 @@
       <v-icon>search</v-icon>
     </v-btn>
 
-    <v-btn icon>
-      <v-icon>refresh</v-icon>
+    <v-btn icon @click="setLoginModal">
+      <v-icon>fa-user</v-icon>
     </v-btn>
   </v-toolbar>
 </template>
 
+
 <script>
+
 export default {
   name: "Header",
+
+  methods: {
+    setLoginModal() {
+      this.$store.commit('setLoginModal', true)
+    }
+  }
   
 }
 </script>

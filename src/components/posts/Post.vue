@@ -33,7 +33,7 @@
           :content="content"
           :writer="writer"
           :writtenDate="writtenDate"></PostModal>
-        </v-card-action>
+      </v-card-action>
     </v-card>
 
   </div>
