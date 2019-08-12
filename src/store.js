@@ -7,11 +7,16 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     loginModal: false,
+    signupModal: false,
   },
   
   mutations: {
     setLoginModal(state, modal) {
       state.loginModal = modal;
+    },
+
+    setSignupModal(state, modal) {
+      state.signupModal = modal;
     }
   }
 })

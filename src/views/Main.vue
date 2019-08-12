@@ -3,6 +3,7 @@
     <Header />
     <PostList></PostList>
     <LoginModal></LoginModal>
+    <SignupModal></SignupModal>
 
   </div>
 </template>
@@ -12,6 +13,7 @@
 import Header from '../components/commons/Header'
 import PostList from '../components/posts/PostList'
 import LoginModal from '../components/commons/LoginModal'
+import SignupModal from '../components/commons/SignupModal'
 
 
 export default {
@@ -21,6 +23,7 @@ export default {
     Header,
     PostList,
     LoginModal,
+    SignupModal
   },
   
 }

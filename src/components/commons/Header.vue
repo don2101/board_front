@@ -10,6 +10,9 @@
       <v-icon>search</v-icon>
     </v-btn>
 
+    <v-btn icon @click="setSignupModal">
+      <v-icon>fa-sign-in-alt</v-icon>
+    </v-btn>
     <v-btn icon @click="setLoginModal">
       <v-icon>fa-user</v-icon>
     </v-btn>
@@ -25,6 +28,10 @@ export default {
   methods: {
     setLoginModal() {
       this.$store.commit('setLoginModal', true)
+    },
+
+    setSignupModal() {
+      this.$store.commit('setSignupModal', true)
     }
   }
   

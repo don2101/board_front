@@ -10,21 +10,23 @@
           </v-card-title>
           
           <!-- input card -->
-          <v-card-text @keyup.esc="setLoginModal">
-            <v-container grid-list-md>
-              <v-layout wrap>
+          <div v-if="dialog">
+            <v-card-text @keyup.esc="setLoginModal">
+              <v-container grid-list-md>
+                <v-layout wrap>
 
-                <v-flex xs12>
-                  <v-text-field label="Email*" required></v-text-field>
-                </v-flex>
-                <v-flex xs12>
-                  <v-text-field label="Password*" type="password" required></v-text-field>
-                </v-flex>
-                
-              </v-layout>
-            </v-container>
-            <small>*indicates required field</small>
-          </v-card-text>
+                  <v-flex xs12>
+                    <v-text-field label="Email*" required autofocus></v-text-field>
+                  </v-flex>
+                  <v-flex xs12>
+                    <v-text-field label="Password*" type="password" required></v-text-field>
+                  </v-flex>
+                  
+                </v-layout>
+              </v-container>
+              <small>*indicates required field</small>
+            </v-card-text>
+          </div>
 
           <!-- button group -->
           <v-card-actions>
