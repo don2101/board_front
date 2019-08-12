@@ -27,13 +27,13 @@
         <div class="card-text">{{ content }}</div>
       </v-card-text>
 
-      <v-card-action>
+      <v-card-actions>
         <PostModal
           :title="title"
           :content="content"
           :writer="writer"
           :writtenDate="writtenDate"></PostModal>
-      </v-card-action>
+      </v-card-actions>
     </v-card>
 
   </div>
@@ -42,14 +42,11 @@
 
 <script>
 import PostModal from './PostModal'
-
 export default {
   name: "Post",
-
   components: {
     PostModal,
   },
-
   props: {
     title: { type: String },
     content: { type: String },
@@ -60,13 +57,11 @@ export default {
   methods: {
     //
   },
-
   data() {
     return {
       //
     }
   },
-
 }
 </script>
 
@@ -75,7 +70,6 @@ export default {
   white-space: normal;
   text-overflow: ellipsis;
   overflow: hidden;
-
   /* 글자 단위로 자른다 */
   word-wrap: break-word;
   /* 여백 삽입 및 유연한 높이 증가 */
@@ -86,4 +80,3 @@ export default {
   -webkit-box-orient: vertical;
 }
 </style>
-

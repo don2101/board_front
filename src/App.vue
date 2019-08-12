@@ -1,19 +1,19 @@
 <template>
   <v-app>
-
+    <div id="app">
+      <Main />
+    </div>
   </v-app>
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld';
 
+<script>
+import Main from './views/Main'
 export default {
-  name: 'App',
+  name: 'app',
+  
   components: {
-    HelloWorld,
-  },
-  data: () => ({
-    //
-  }),
-};
+    Main,
+  }
+}
 </script>
