@@ -11,18 +11,18 @@
           
           <!-- input card -->
           <div v-if="dialog">
-            <v-card-text @keyup.esc="setSignupModal">
+            <v-card-text @keyup.esc="setSignupModal" @keyup.enter="sendSignup">
               <v-container grid-list-md>
                 <v-layout wrap>
                   
                     <v-flex xs12>
-                      <v-text-field label="Nickname*" required autofocus></v-text-field>
+                      <v-text-field v-model="nickName" label="Nickname*" required autofocus></v-text-field>
                     </v-flex>
                     <v-flex xs12>
-                      <v-text-field label="Email*" required></v-text-field>
+                      <v-text-field v-model="email" label="Email*" required></v-text-field>
                     </v-flex>
                     <v-flex xs12>
-                      <v-text-field label="Password*" type="password" required></v-text-field>
+                      <v-text-field v-model="password" label="Password*" type="password" required></v-text-field>
                     </v-flex>
                 
                 </v-layout>
@@ -35,7 +35,7 @@
           <v-card-actions>
             <v-spacer></v-spacer>
             <v-btn color="blue darken-1" dark text @click="setSignupModal">Close</v-btn>
-            <v-btn color="blue darken-1" dark text @click="setSignupModal">Save</v-btn>
+            <v-btn color="blue darken-1" dark text @click="sendSignup">Save</v-btn>
           </v-card-actions>
         </v-card>
       </v-dialog>
@@ -45,8 +45,18 @@
 
 
 <script>
+import AccountService from '../../services/AccountService'
+
 export default {
   name: 'SignupModal',
+
+  data() {
+    return {
+      nickName: '',
+      email: '',
+      password: '',
+    }
+  },
 
   computed: {
     dialog() {
@@ -57,6 +67,16 @@ export default {
   methods: {
     setSignupModal() {
       this.$store.commit('setSignupModal', false)
+    },
+
+    async sendSignup() {
+      const signupBody = {
+        username: this.nickName,
+        email: this.email,
+        password: this.password,
+      }
+
+      const response = await AccountService.signupRequest(signupBody)
     }
   }
 
