@@ -11,15 +11,15 @@
           
           <!-- input card -->
           <div v-if="dialog">
-            <v-card-text @keyup.esc="setLoginModal">
+            <v-card-text @keyup.esc="setLoginModal" @keyup.enter="sendLogin">
               <v-container grid-list-md>
                 <v-layout wrap>
 
                   <v-flex xs12>
-                    <v-text-field label="Email*" required autofocus></v-text-field>
+                    <v-text-field v-model="nickname" label="nickname*" required autofocus></v-text-field>
                   </v-flex>
                   <v-flex xs12>
-                    <v-text-field label="Password*" type="password" required></v-text-field>
+                    <v-text-field v-model="password" label="Password*" type="password" required></v-text-field>
                   </v-flex>
                   
                 </v-layout>
@@ -42,8 +42,17 @@
 
 
 <script>
+import AccountService from '../../services/AccountService'
+
 export default {
   name: 'LoginModal',
+
+  data() {
+    return {
+      nickname: '',
+      password: '',
+    }
+  },
 
   computed: {
     dialog() {
@@ -54,6 +63,23 @@ export default {
   methods: {
     setLoginModal() {
       this.$store.commit('setLoginModal', false)
+    },
+
+    async sendLogin() {
+      const loginBody = {
+        username: this.nickname,
+        password: this.password
+      }
+        
+      const response = await AccountService.loginRequest(loginBody)
+
+      if(response == false) {
+        alert("아이디나 비밀번호가 잘못되었습니다.")
+      } else {
+        alert("로그인 되었습니다.")
+
+        this.$store.commit('setLoginModal', false)
+      }
     }
   }
 
