@@ -8,23 +8,21 @@ export default {
 
     try {
       response = await axios.post(BASE_URL + 'signin/', loginBody)
-      console.log(response)
-      
+
+      // 로그인 요청 후 jwt와 isLogin 정보를 wjwkd
       if(response.status == 200) {
         sessionStorage.setItem("jwt", response.data)
         sessionStorage.setItem("isLogin", true)
 
         return response
       } else {
-        
         return false
       }
 
     } catch(e) {
-      alert("로그인 에러!")
+      return false
     }
     
-    return response
   },
 
   async signupRequest(signupBody) {

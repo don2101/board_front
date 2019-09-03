@@ -32,7 +32,7 @@
           <v-card-actions>
             <v-spacer></v-spacer>
             <v-btn color="blue darken-1" dark text @click="setLoginModal">Close</v-btn>
-            <v-btn color="blue darken-1" dark text @click="setLoginModal">Save</v-btn>
+            <v-btn color="blue darken-1" dark text @click="sendLogin">Save</v-btn>
           </v-card-actions>
         </v-card>
       </v-dialog>
@@ -77,7 +77,6 @@ export default {
         alert("아이디나 비밀번호가 잘못되었습니다.")
       } else {
         alert("로그인 되었습니다.")
-
         this.$store.commit('setLoginModal', false)
       }
     }
