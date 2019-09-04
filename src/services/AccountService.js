@@ -4,17 +4,17 @@ const BASE_URL = "http://localhost:8000/accounts/";
 
 export default {
   async loginRequest(loginBody) {
-    let response = 'failed'
+    let response;
 
     try {
       response = await axios.post(BASE_URL + 'signin/', loginBody)
 
       // 로그인 요청 후 jwt와 isLogin 정보를 wjwkd
       if(response.status == 200) {
-        sessionStorage.setItem("jwt", response.data)
-        sessionStorage.setItem("isLogin", true)
+        sessionStorage.setItem("jwt", response.data);
+        sessionStorage.setItem("isLogin", true);
 
-        return response
+        return true
       } else {
         return false
       }
@@ -26,13 +26,28 @@ export default {
   },
 
   async signupRequest(signupBody) {
-    let response = 'failed'
+    let response;
     try {
-      response = await axios.post(BASE_URL + 'signup/', signupBody)
+      response = await axios.post(BASE_URL + 'signup/', signupBody);
+
+      if(response.status == 201) {
+        return true
+      }
+
+      return false
     } catch(e) {
-      alert("똑바로 입력!")
+
+      return false
     }
 
-    return response
+  },
+
+  async logoutRequest() {
+    const token = sessionStorage.getItem('jwt')
+    const body = {'token': token}
+    sessionStorage.removeItem("jwt")
+    sessionStorage.removeItem("isLogin")
+
+    let response = await axios.post(BASE_URL + 'signout/', body)    
   }
 }
