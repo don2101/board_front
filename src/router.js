@@ -14,7 +14,7 @@ export default new Vuerouter({
       path: '/',
       name: 'home',
       component: Home
-    }
+    },
   ]
 
 })

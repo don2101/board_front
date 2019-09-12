@@ -4,7 +4,7 @@
     <PostList></PostList>
     <LoginModal></LoginModal>
     <SignupModal></SignupModal>
-
+    <PostWrite></PostWrite>
   </div>
 </template>
 
@@ -14,7 +14,7 @@ import Header from '../components/commons/Header'
 import PostList from '../components/posts/PostList'
 import LoginModal from '../components/commons/LoginModal'
 import SignupModal from '../components/commons/SignupModal'
-
+import PostWrite from '../components/posts/PostWrite'
 
 export default {
   name: "Main",
@@ -23,7 +23,8 @@ export default {
     Header,
     PostList,
     LoginModal,
-    SignupModal
+    SignupModal,
+    PostWrite,
   },
   
 }

@@ -24,6 +24,14 @@
       </v-btn>
     </div>
 
+    <!-- post button -->
+    <div v-if="this.isLogin">
+      <v-btn icon @click="goToWrite">
+        <v-icon>fa-pencil-alt</v-icon>
+      </v-btn>
+    </div>
+
+    <!-- logout button -->
     <div v-if="this.isLogin">
       <v-btn icon @click="sendLogout">
         <v-icon>fa-sign-out-alt</v-icon>
@@ -54,7 +62,10 @@ export default {
       if(flag) {
         const response = AccountService.logoutRequest()
       }
+    },
 
+    goToWrite() {
+      this.$store.commit('setWriteModal', true)
     }
   },
 

@@ -8,6 +8,7 @@ export default new Vuex.Store({
   state: {
     loginModal: false,
     signupModal: false,
+    writeModal: false,
   },
   
   mutations: {
@@ -17,6 +18,10 @@ export default new Vuex.Store({
 
     setSignupModal(state, modal) {
       state.signupModal = modal;
+    },
+    
+    setWriteModal(state, modal) {
+      state.writeModal = modal;
     }
   }
 })
