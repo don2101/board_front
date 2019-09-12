@@ -82,6 +82,7 @@ export default {
         alert("이미 존재하는 회원입니다")
       } else {
         alert("정상적으로 회원가입 되었습니다")
+        location.href = '/'
         this.$store.commit('setLoginModal', false)
       }
     }

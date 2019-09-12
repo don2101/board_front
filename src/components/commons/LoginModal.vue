@@ -77,6 +77,7 @@ export default {
         alert("아이디나 비밀번호가 잘못되었습니다.")
       } else {
         alert("로그인 되었습니다.")
+        location.href = '/'
         this.$store.commit('setLoginModal', false)
       }
     }

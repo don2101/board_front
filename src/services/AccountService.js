@@ -47,6 +47,7 @@ export default {
     const body = {'token': token}
     sessionStorage.removeItem("jwt")
     sessionStorage.removeItem("isLogin")
+    location.href = '/'
 
     let response = await axios.post(BASE_URL + 'signout/', body)    
   }

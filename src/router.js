@@ -6,7 +6,8 @@ import Home from './views/Main.vue'
 Vue.use(Vuerouter)
 
 export default new Vuerouter({
-  mode: history,
+  mode: 'history',
+  base: process.env.BASE_URL,
 
   routes: [
     {
