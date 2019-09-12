@@ -1,13 +1,14 @@
 <template>
-  <div id="app">
-    <Main />
-  </div>
+  <v-app>
+    <div id="app">
+      <Main />
+    </div>
+  </v-app>
 </template>
 
 
 <script>
 import Main from './views/Main'
-
 export default {
   name: 'app',
   
@@ -16,4 +17,3 @@ export default {
   }
 }
 </script>
-

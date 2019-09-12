@@ -1,9 +1,10 @@
 <template>
   <div>
     <Header />
-    <v-container>
-      <PostList></PostList>
-    </v-container>
+    <PostList></PostList>
+    <LoginModal></LoginModal>
+    <SignupModal></SignupModal>
+
   </div>
 </template>
 
@@ -11,6 +12,9 @@
 <script>
 import Header from '../components/commons/Header'
 import PostList from '../components/posts/PostList'
+import LoginModal from '../components/commons/LoginModal'
+import SignupModal from '../components/commons/SignupModal'
+
 
 export default {
   name: "Main",
@@ -18,6 +22,8 @@ export default {
   components: {
     Header,
     PostList,
+    LoginModal,
+    SignupModal
   },
   
 }
