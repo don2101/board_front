@@ -70,7 +70,7 @@ export default {
         username: this.nickname,
         password: this.password
       }
-        
+      
       const response = await AccountService.loginRequest(loginBody)
 
       if(response == false) {
