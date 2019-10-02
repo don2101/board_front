@@ -7,5 +7,11 @@ export default {
     const response =  await axios.get(BASE_URL);
     
     return response.data
+  },
+
+  async postPost(body) {
+    const response = await axios.post(BASE_URL, body);
+    console.log(response);
+    return response
   }
 }

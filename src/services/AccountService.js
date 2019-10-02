@@ -9,7 +9,7 @@ export default {
     try {
       response = await axios.post(BASE_URL + 'signin/', loginBody)
 
-      // 로그인 요청 후 jwt와 isLogin 정보를 wjwkd
+      // 로그인 요청 후 jwt와 isLogin 정보를 저장
       if(response.status == 200) {
         sessionStorage.setItem("jwt", response.data);
         sessionStorage.setItem("isLogin", true);
