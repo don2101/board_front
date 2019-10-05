@@ -6,7 +6,7 @@
           width="500">
 
         <div v-if="dialog">
-          <v-card @keyup.esc="setWriteModal" @keyup.enter="sendPost">
+          <v-card @keyup.esc="setWriteModal">
             <v-container fill-height fluid>
               <v-flex xs12 align-end flexbox>
                 <v-text-field
@@ -70,6 +70,7 @@ export default {
       }
 
       PostService.postPost(body);
+      this.setWriteModal();
     }
   },
   

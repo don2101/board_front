@@ -11,7 +11,7 @@ export default {
 
   async postPost(body) {
     const response = await axios.post(BASE_URL, body);
-    console.log(response);
+
     return response
   }
 }
